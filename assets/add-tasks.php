@@ -42,7 +42,7 @@
                 <div class="container-fluid">
                     <div class="col-11 my-4 shadow rounded">
                         <div class="col-12 text-center display-4 fw-bold pb-4 rounded"><?php echo $pageName; ?></div>
-                        <form action="post">
+                        <form action="push">
                             <div class="col-12 d-flex">
                                 <div class="col-3">
                                     <input type="text" class="col-12 rounded px-3 py-2 border border-secondary mx-5" placeholder="Home work" name="title">
