@@ -37,9 +37,22 @@
                        $imginsrted = move_uploaded_file($imageTmp,"images/$image");
 
                     //    if($imginsrted){
-                    //     echo '<div class="alert alert-success custom">
-                    //              <p><strong>Success!</strong> image is uploaded</p> 
-                    //         </div>';
+                    //     //write qurey for insertion
+                    //     $sql = "insert into tasks (title_db, description_db, expire_date_db,image_db) values ('$title', '$description', '$expireDate','$image')";
+
+                    //     //run the qurey
+                    //        $res = mysqli_query($conn, $sql);
+   
+                    //        //check the data been submitted or not
+                    //        if($res){
+                    //            echo '<div class="alert alert-success custom">
+                    //                    <p><strong>Success!</strong> data inserted Successfully</p> 
+                    //                 </div>';
+                    //        }else{
+                    //            echo '<div class="alert alert-danger custom">
+                    //                     <p><strong>Note!</strong> data is not inserted</p> 
+                    //                 </div>';
+                    //        }
                     //    }else{
                     //     echo '<div class="alert alert-danger custom">
                     //             <p><strong>Note!</strong> Image is not uploaded</p> 
