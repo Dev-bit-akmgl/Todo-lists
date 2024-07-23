@@ -16,10 +16,5 @@
         <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="./css/styles.css">
-        <style>
-            .active-page{
-                color: #636464;
-                background-color: #e5e5e5;
-            }
-        </style>
+        <link rel="stylesheet" href="./css/custom-style.css">
     </head>

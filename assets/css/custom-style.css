@@ -1,0 +1,13 @@
+.active-page{
+    color: #636464;
+    background-color: #e5e5e5;
+}
+
+.custom{
+    width: 19vw !important;
+    height: 9vh !important;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
