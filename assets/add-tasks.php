@@ -29,9 +29,9 @@
                 <?php
                 if(isset($_POST["btn-submit"])){
                       //creating variables of the form values
-                        $title = $_POST["title"];
-                        $expireDate = $_POST["expire-date"];
-                        $description = $_POST["description"];
+                        $title = htmlentities(mysqli_real_escape_string($conn, $_POST["title"]));;
+                        $expireDate = htmlentities(mysqli_real_escape_string($conn, $_POST["expire-date"]));;
+                        $description = htmlentities(mysqli_real_escape_string($conn, $_POST["description"]));;
                         $image = $_FILES["image"]["name"];
                         $imageTmp = $_FILES["image"]["tmp_name"];
                        $imginsrted = move_uploaded_file($imageTmp,"images/$image");
@@ -92,7 +92,7 @@
                                     <input type="file" accept="image/*" class="form-control mx-5" name="image">
                                 </div>
                                 <div class="col-3">
-                                    <input type="date" class="col-12 rounded px-3 py-2 border border-secondary mx-5" name="expire-date">
+                                    <input type="date" class="col-12 rounded px-3 py-2 border border-secondary mx-5" name="expire-date" value=<?php echo date("Y-m-d")?> min=<?php echo date("Y-m-d")?>>
                                 </div>
                             </div> 
                             <div class="col-12">
