@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once("config.php");
     $pageName = ucwords($pageName = str_replace("-", " ", $pageName = basename($_SERVER["PHP_SELF"], ".php")));
 

@@ -33,6 +33,7 @@
                         $expireDate = htmlentities(mysqli_real_escape_string($conn, $_POST["expire-date"]));;
                         $description = htmlentities(mysqli_real_escape_string($conn, $_POST["description"]));;
                         $image = $_FILES["image"]["name"];
+                        $image = time()."_".$image;
                         $imageTmp = $_FILES["image"]["tmp_name"];
                        $imginsrted = move_uploaded_file($imageTmp,"images/$image");
 
@@ -68,9 +69,12 @@
 
                         //check the data been submitted or not
                         if($res){
-                            echo '<div class="alert alert-success custom">
+                            $_SESSION["msg1"] = '<div class="alert alert-success custom">
                                     <p><strong>Success!</strong> data inserted Successfully</p> 
                                  </div>';
+                                 
+                                 header("location:tasks.php"); 
+                                 
                         }else{
                             echo '<div class="alert alert-danger custom">
                                      <p><strong>Note!</strong> data is not inserted</p> 

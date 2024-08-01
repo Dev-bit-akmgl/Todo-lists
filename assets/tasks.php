@@ -1,12 +1,13 @@
 <?php
-  require_once("./inc/top.php");
+ require_once("./inc/top.php");
+
 
   if(isset($_POST["btn-del"])){
     $id = $_POST["del-id"];
     $sqldel = "delete from tasks where id = '$id'";
     $result = mysqli_query($conn, $sqldel);
        if($result){
-            echo '<div class="alert alert-success msg custom">
+                    echo '<div class="alert alert-success msg custom">
                     <strong>Success</strong> Data is deleted
                   </div>';
        }else{
@@ -68,7 +69,7 @@
                                     if($row["status_db"] == 1){
                                         echo '<button class="btn btn-sm btn-success">Completed</button>';
                                     }
-                                    else{
+                                    if($row["status_db"] == 0){
                                         echo '<button class="btn btn-sm btn-warning">Pending</button>';
                                     }
                                 ?></td>
@@ -93,7 +94,20 @@
                                             </div> ';
                                 }
 
+                                if(isset( $_SESSION["msg"])){
+                                    echo  $_SESSION["msg"];
+                                    unset( $_SESSION["msg"]);
+                                 }
+
+                                 if(isset( $_SESSION["msg1"])){
+                                    echo  $_SESSION["msg1"];
+                                    unset( $_SESSION["msg1"]);
+                                 }
+
                         ?>        
+
+                        
+                       
 
                             </tbody>
                         </table>
