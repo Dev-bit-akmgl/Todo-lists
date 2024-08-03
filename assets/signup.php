@@ -35,6 +35,28 @@ require_once ("./inc/top.php");
             </form>
 
 
+            <?php
+
+            if (isset($_POST["btn-register"])) {
+                $name = htmlentities(mysqli_real_escape_string($conn, $_POST["username"]));
+                $email = htmlentities(mysqli_real_escape_string($conn, $_POST["email"]));
+                $password = htmlentities(mysqli_real_escape_string($conn, $_POST["password"]));
+
+                $sqlreg = "insert into users(name_db, email_db, password_db) values('$name', '$email', '$password')";
+                $resreg = mysqli_query($conn, $sqlreg);
+
+                if ($resreg) {
+                    $_SESSION["msg2"] = '<div class="alert alert-success custom">
+                                    <p><strong>Success!</strong>Account is created</p> 
+                                 </div>';
+                }
+
+                header("location:add-tasks.php");
+
+            }
+            ?>
+
+
 
             <p class="text-center">Already have an account? <a href="index.php">Login</a></p>
         </div>

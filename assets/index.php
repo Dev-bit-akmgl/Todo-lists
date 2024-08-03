@@ -1,5 +1,27 @@
 <?php
 require_once ("./inc/top.php");
+
+if(isset($_SESSION["isLoggedIn"])){
+    header("location:dashboard.php");
+}
+
+if(isset($_POST["btn-login"])){
+    $email = htmlentities(mysqli_real_escape_string($conn, $_POST["email"]));
+    $password = htmlentities(mysqli_real_escape_string($conn, $_POST["password"]));
+
+    $sqlLogIn = "select * from users where email_db = '$email' and binary password_db = '$password'";
+    $result = mysqli_query($conn, $sqlLogIn);
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        // $_SESSION["isLoggedIn"] = true;
+        $_SESSION["Name"] = $row["name_db"];
+        header("location:dashboard.php");
+    }else{
+        echo '<div class="alert alert-danger custom">
+                <strong>Note!</strong> Invalid Email or Password</div>';
+    }
+}
+
 ?>
 
 <body class="body">

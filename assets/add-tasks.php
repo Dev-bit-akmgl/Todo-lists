@@ -29,11 +29,8 @@ require_once ("./inc/top.php");
             if (isset($_POST["btn-submit"])) {
                 //creating variables of the form values
                 $title = htmlentities(mysqli_real_escape_string($conn, $_POST["title"]));
-                ;
                 $expireDate = htmlentities(mysqli_real_escape_string($conn, $_POST["expire-date"]));
-                ;
                 $description = htmlentities(mysqli_real_escape_string($conn, $_POST["description"]));
-                ;
                 $image = $_FILES["image"]["name"];
                 $image = time() . "_" . $image;
                 $imageTmp = $_FILES["image"]["tmp_name"];
@@ -115,6 +112,14 @@ require_once ("./inc/top.php");
             </div>
         </div>
     </div>
+
+
+    <?php
+        if(isset($_SESSION["msg2"])){
+            echo"$_SESSION[msg2]";
+            unset($_SESSION["msg2"]);
+        }
+    ?>
 
 
 
