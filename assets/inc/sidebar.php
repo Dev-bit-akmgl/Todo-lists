@@ -1,5 +1,5 @@
 <div class="border-end bg-white" id="sidebar-wrapper">
-    <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+    <div class="sidebar-heading border-bottom bg-light"><?php echo $_SESSION["N"]?></div>
     <div class="list-group list-group-flush">
         <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo ($pageName == "Dashboard") ? "active-page" : "" ?>"
             href="../assets/dashboard.php">Dashboard</a>

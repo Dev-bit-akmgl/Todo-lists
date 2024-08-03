@@ -1,9 +1,11 @@
 <?php
 require_once ("./inc/top.php");
 
-if(isset($_SESSION["isLoggedIn"])){
-    header("location:dashboard.php");
-}
+
+
+// if(isset($_SESSION["isLoggedIn"])){
+//     header("location:dashboard.php");
+// }
 
 if(isset($_POST["btn-login"])){
     $email = htmlentities(mysqli_real_escape_string($conn, $_POST["email"]));
@@ -13,8 +15,8 @@ if(isset($_POST["btn-login"])){
     $result = mysqli_query($conn, $sqlLogIn);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
-        // $_SESSION["isLoggedIn"] = true;
-        $_SESSION["Name"] = $row["name_db"];
+        $_SESSION["isLoggedIn"] = true;
+        $_SESSION["N"] = $row["name_db"];
         header("location:dashboard.php");
     }else{
         echo '<div class="alert alert-danger custom">

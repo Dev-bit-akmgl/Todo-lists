@@ -2,6 +2,7 @@
 
 <?php
   require_once("./inc/top.php");
+  
 ?>
     <body>
         <div class="d-flex" id="wrapper">

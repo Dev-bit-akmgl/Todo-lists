@@ -4,7 +4,11 @@ if (isset($_GET["action"]) && $_GET["action"] == "logout") {
     header("location:index.php");
 }
 
-if(!isset($_SESSION["isLoggedIn"])){
-    header("location:index.php");
-}
+
+
+// if(!isset($_SESSION["isLoggedIn"])){
+//     header("location:index.php");
+// }
+
+
 ?>
