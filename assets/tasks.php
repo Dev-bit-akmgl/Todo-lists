@@ -16,6 +16,28 @@ if (isset($_POST["btn-del"])) {
                     </div>';
     }
 }
+
+    if(isset($_GET["type"]) && $_GET["type"] != ""){
+        $type = htmlentities(mysqli_real_escape_string($conn, $_GET["type"]));
+        $id = htmlentities(mysqli_real_escape_string($conn, $_GET["id"]));
+            if($type == "complete"){
+                $sql = "update tasks set status_db = '1' where id = '$id'";
+            }
+            if($type == "pending"){
+                $sql = "update tasks set status_db = '0' where id = '$id'";
+            }
+            $resultStatus = mysqli_query($conn, $sql);
+            if($resultStatus){
+                echo '<div class="alert alert-success msg custom">
+                <strong>Success</strong> Status is updated.
+            </div>';
+            } else{
+                echo '<div class="alert alert-danger msg custom">
+                <strong>Note!</strong> Status is not updated.
+            </div>';
+            }
+
+        }
 ?>
 
 <body>
@@ -68,10 +90,10 @@ if (isset($_POST["btn-del"])) {
                                         <td><?php echo date("D. d-M-Y", strtotime($row["expire_date_db"])) ?></td>
                                         <td> <?php
                                         if ($row["status_db"] == 1) {
-                                            echo '<button class="btn btn-sm btn-success">Completed</button>';
+                                            echo '<a href="?type=pending&id=' . $row["id"] . '" class="btn btn-sm btn-success">Completed</a>';
                                         }
-                                        if ($row["status_db"] == 0) {
-                                            echo '<button class="btn btn-sm btn-warning">Pending</button>';
+                                        else {
+                                            echo '<a href="?type=complete&id=' . $row["id"] . '" class="btn btn-sm btn-warning">Pending</a>';
                                         }
                                         ?></td>
                                         <td>

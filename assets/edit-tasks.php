@@ -8,7 +8,8 @@ require_once ("./inc/top.php");
 
 <body>
     <?php
-    $id = htmlentities(mysqli_real_escape_string($conn, $_GET["id"]));
+    $_SESSION["ID"] = htmlentities(mysqli_real_escape_string($conn, $_GET["id"]));
+    $id = $_SESSION["ID"];
     if (isset($_POST["btn-submit"])) {
         //creating variables of the form values
         $title = htmlentities(mysqli_real_escape_string($conn, $_POST["title"]));

@@ -35,6 +35,8 @@ require_once ("./inc/top.php");
                 $image = time() . "_" . $image;
                 $imageTmp = $_FILES["image"]["tmp_name"];
                 $imginsrted = move_uploaded_file($imageTmp, "images/$image");
+                $ID = $_SESSION["ID"];
+                
 
                 //    if($imginsrted){
                 //     //write qurey for insertion
@@ -61,7 +63,7 @@ require_once ("./inc/top.php");
             
 
                 //write qurey for insertion
-                $sql = "insert into tasks (title_db, description_db, expire_date_db,image_db) values ('$title', '$description', '$expireDate','$image')";
+                $sql = "insert into tasks (title_db, description_db, expire_date_db, image_db, added_by_db) values ('$title', '$description', '$expireDate','$image', '$ID')";
 
                 //run the qurey
                 $res = mysqli_query($conn, $sql);

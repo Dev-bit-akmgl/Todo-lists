@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     require_once("config.php");
     require_once("../assets/logout.php");
     $pageName = ucwords($pageName = str_replace("-", " ", $pageName = basename($_SERVER["PHP_SELF"], ".php")));
