@@ -2,6 +2,7 @@
 require_once ("./inc/top.php");
 
 
+
 if (isset($_POST["btn-del"])) {
     $id = $_POST["del-id"];
     $sqldel = "delete from tasks where id = '$id'";
@@ -74,7 +75,8 @@ if (isset($_POST["btn-del"])) {
                         <tbody>
                             <?php
                             $i = 1;
-                            $sql = "select * from tasks order by id desc";
+                            $TID =  $_SESSION["ID"];
+                            $sql = "select * from tasks where added_by_db='$TID'";
                             $res = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($res) > 0) {
                                 while ($row = mysqli_fetch_assoc($res)) {
@@ -113,7 +115,7 @@ if (isset($_POST["btn-del"])) {
                                     $i++;
                                 }
                             } else {
-                                echo '<div class="alert alert-warning">
+                                echo '<div class="alert alert-warning custom">
                                             <strong>Warning!</strong>data not found
                                             </div> ';
                             }
@@ -129,6 +131,8 @@ if (isset($_POST["btn-del"])) {
                             }
 
                             ?>
+
+                           
 
 
 

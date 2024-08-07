@@ -1,5 +1,6 @@
 <?php
 require_once ("./inc/top.php");
+
 ?>
 
 
@@ -24,6 +25,9 @@ require_once ("./inc/top.php");
         } else {
             $image = $_POST["old_image"];
         }
+
+
+        $ID = $_SESSION["ID"];
 
 
         //    if($imginsrted){
@@ -51,7 +55,7 @@ require_once ("./inc/top.php");
     
 
         //write qurey for insertion
-        $sql = "update tasks set title_db='$title', expire_date_db='$expireDate', description_db='$description', image_db='$image' where id='$id'";
+        $sql = "update tasks set title_db='$title', expire_date_db='$expireDate', description_db='$description', image_db='$image', added_by_db='$ID' where id='$id'";
 
         // run the query
         $res = mysqli_query($conn, $sql);

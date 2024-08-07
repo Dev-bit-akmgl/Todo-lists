@@ -1,5 +1,6 @@
 <?php
 require_once ("./inc/top.php");
+
 ?>
 
 <body>
@@ -31,10 +32,15 @@ require_once ("./inc/top.php");
                 $title = htmlentities(mysqli_real_escape_string($conn, $_POST["title"]));
                 $expireDate = htmlentities(mysqli_real_escape_string($conn, $_POST["expire-date"]));
                 $description = htmlentities(mysqli_real_escape_string($conn, $_POST["description"]));
-                $image = $_FILES["image"]["name"];
-                $image = time() . "_" . $image;
-                $imageTmp = $_FILES["image"]["tmp_name"];
-                $imginsrted = move_uploaded_file($imageTmp, "images/$image");
+
+                if(empty($_FILES["image"]["name"])){
+                    $image = "dummy.jpg";
+                }else{
+                    $image = $_FILES["image"]["name"];
+                    $image = time() . "_" . $image;
+                    $imageTmp = $_FILES["image"]["tmp_name"];
+                    $imginsrted = move_uploaded_file($imageTmp, "images/$image");
+                }
                 $ID = $_SESSION["ID"];
                 
 
