@@ -1,11 +1,11 @@
 <?php
 require_once ("./inc/top.php");
-print_r($_SESSION);
+// print_r($_SESSION);
 
 
-// if(isset($_SESSION["isLoggedIn"])){
-//     header("location:dashboard.php");
-// }
+if(isset($_SESSION["isLoggedIn"])){
+    header("location:dashboard.php");
+}
 
 
 

@@ -2,6 +2,7 @@
 
 <?php
   require_once("./inc/top.php");
+  require_once("logout.php");
  
   
 if(isset($_SESSION["isLoggedIn"])){

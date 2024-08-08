@@ -11,7 +11,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../assets/index.php?action=logout">Logout</a>
+                        <a class="dropdown-item" href="?action=logout">Logout</a>
 
                     </div>
                 </li>
