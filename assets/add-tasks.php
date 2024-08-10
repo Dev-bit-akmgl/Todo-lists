@@ -76,11 +76,11 @@ require_once ("logout.php");
                 $res = mysqli_query($conn, $sql);
 
                 //check the data been submitted or not
-                if ($res) {
+            
                     $_SESSION["msg1"] = '<div class="alert alert-success custom">
                                     <p><strong>Success!</strong> data inserted Successfully</p> 
                                  </div>';
-
+                if($res){
                     header("location:tasks.php");
 
                 } else {
